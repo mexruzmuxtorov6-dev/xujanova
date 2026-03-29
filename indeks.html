@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor | Neumorphic Blue Edition</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep-blue: #0f172a;
+            --neon-cyan: #00f2fe;
+            --text-white: #f8fafc;
+            --neo-shadow: 10px 10px 20px #080d18, -5px -5px 15px #1e293b;
+            --neo-inner: inset 4px 4px 8px #080d18, inset -4px -4px 8px #1e293b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-deep-blue);
+            color: var(--text-white);
+            padding: 40px 20px;
+            display: flex; justify-content: center;
+        }
+
+        .main-wrapper { max-width: 1250px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+
+        /* [ASOSIY BANNER - 3 USTUNLI] */
+        .hero-banner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 30px;
+            align-items: center;
+            background: var(--bg-deep-blue);
+            border-radius: 35px;
+            padding: 50px 40px;
+            box-shadow: var(--neo-shadow);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            position: relative;
+            transition: 0.4s ease;
+        }
+
+        /* Chap tomon: Ism va Ma'lumotlar */
+        .info-left h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: var(--neon-cyan); margin-bottom: 20px; line-height: 1.2; }
+        .details-box { font-size: 0.9rem; line-height: 1.6; opacity: 0.8; margin-bottom: 25px; }
+        .details-box p { margin-bottom: 8px; }
+
+        /* Markaz: Profil Rasmi (To'liq ko'rinadigan qilib to'g'rilandi) */
+        .avatar-center { display: flex; justify-content: center; position: relative; }
+        .img-container {
+            width: 250px; height: 250px; border-radius: 50%;
+            padding: 10px; box-shadow: var(--neo-inner);
+            position: relative; z-index: 2;
+            background: #1e293b; /* Rasm fonini to'ldirish uchun */
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .profile-img { 
+            width: 100%; height: 100%; border-radius: 50%; 
+            object-fit: contain; /* RASM KESILMAYDI, TO'LIQ SIG'ADI */
+        }
+        .neon-glow {
+            position: absolute; width: 265px; height: 265px;
+            border-radius: 50%; border: 4px solid var(--neon-cyan);
+            box-shadow: 0 0 25px var(--neon-cyan), inset 0 0 15px var(--neon-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        /* O'ng tomon: Mehnat faoliyati va Resurslar */
+        .info-right h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--text-white); margin-bottom: 15px; border-bottom: 1px solid rgba(0,242,254,0.2); padding-bottom: 5px; }
+        .work-list { list-style: none; font-size: 0.8rem; opacity: 0.7; margin-bottom: 25px; }
+        .work-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
+        .work-list li::before { content: '•'; color: var(--neon-cyan); position: absolute; left: 0; }
+
+        .file-link {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px; margin-top: 10px; background: var(--bg-deep-blue);
+            box-shadow: var(--neo-inner); border-radius: 12px;
+            text-decoration: none; color: var(--text-white); font-size: 0.85rem;
+        }
+        .file-link:hover { box-shadow: var(--neo-shadow); color: var(--neon-cyan); }
+
+        /* Tugmalar */
+        .action-btns { display: flex; gap: 15px; }
+        .btn-modern {
+            padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.85rem;
+            transition: 0.3s; color: #fff; background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .btn-outline { background: transparent; border: 2px solid var(--neon-cyan); color: var(--neon-cyan); }
+
+        /* Footer / Aloqa */
+        .footer-panel {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-deep-blue); padding: 18px 40px;
+            border-radius: 20px; box-shadow: var(--neo-shadow); font-size: 0.9rem;
+        }
+        .socials a { color: var(--text-white); text-decoration: none; margin-left: 20px; }
+        .socials i { color: var(--neon-cyan); margin-right: 5px; }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.02); } }
+
+        @media (max-width: 1100px) {
+            .hero-banner { grid-template-columns: 1fr; text-align: center; }
+            .avatar-center { order: -1; margin-bottom: 20px; }
+            .action-btns { justify-content: center; }
+            .footer-panel { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div style="text-align: center; font-family: 'Orbitron'; font-size: 0.7rem; opacity: 0.5; letter-spacing: 3px; margin-bottom: 10px;">
+        Professor | <span style="color: var(--neon-cyan);">Хужанова Дилафрўз Шакарбековна</span>
+    </div>
+
+    <section class="hero-banner" id="mainCard">
+        <div class="info-left">
+            <h1>Хужанова Дилафрўз Шакарбековна</h1>
+            <div class="details-box">
+                <p><strong>Специальность:</strong> Физика, атом ядроси ва элементар заррачалар физикаси</p>
+                <p><strong>Илмий даражаси:</strong> физика-математика фанлари доктори (PhD)</p>
+                <p style="margin-top: 15px; color: var(--neon-cyan); font-family: 'Orbitron';"> IPU  .2025-йил 3-сентябрдан:
+Иктисодиёт ва педагогика университети Самарканд кампуси иктисодиёт ва мухандислик фанлар кафедраси доценти.</p>
+                <p>
+
+</p>
+            </div>
+
+            <div class="action-btns">
+                <a href="a.html" class="btn-modern">Ochiq Darslar.1</a>
+                <a href="d.html" class="btn-modern btn-outline">Ochiq dars .2</a>
+            </div>
+        </div>
+
+        <div class="avatar-center">
+            <div class="neon-glow"></div>
+            <div class="img-container">
+                <img src="xj.jpg" alt="Professor Profile" class="profile-img">
+            </div>
+        </div>
+
+        <div class="info-right">
+            <h3>Mehnat Faoliyati</h3>
+            <ul class="work-list">
+                <li> 1998-2002: SamDU talabasi</li>
+                <li> 2002-2004: SamDU magistranti</li>
+                <li> 2004-2011: Jomboy 7 va 12-maktab o'qituvchisi</li>
+                <li> 2011-2013: TATU SF kabinet mudiri</li>
+                <li> 2013-2020: TATU SF assistenti</li>
+                <li> 2020-2025: TATU SF dotsenti</li>
+                <li> 2025-h.v: IPU dotsenti</li>
+            </ul>
+
+            <h3>Resurslar</h3>
+            <a href="#" class="file-link">
+                <span><i class="fas fa-file-word" style="color: #2b5797;"></i> 1-Ma'ruza matni</span>
+                <i class="fas fa-download"></i>
+            </a>
+            <a href="#" class="file-link">
+                <span><i class="fas fa-file-word" style="color: #2b5797;"></i> Mustaqil ish mavzulari</span>
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer-panel">
+        <div style="font-weight: 600; letter-spacing: 1px;">Aloqa kanallari</div>
+        <div class="socials">
+            <a href="https://t.me/dxujanova"><i class="fab fa-telegram-plane"></i> Telegram_well</a>
+            <span>|</span>
+            <a href="mailto:alimov@edu.uz"><i class="fas fa-envelope"></i> Aloqa</a>
+            <span>|</span>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fab fa-youtube" style="color: #ff0000;"></i></a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const card = document.getElementById('mainCard');
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = (y - rect.height / 2) / 30;
+        const rotateY = (rect.width / 2 - x) / 30;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+</script>
+
+</body>
+</html>
